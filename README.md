@@ -1,11 +1,5 @@
 # Presto Client PHP
 
-[![](https://img.shields.io/packagist/php-v/clouding/presto-client-php.svg?style=flat-square)](https://packagist.org/packages/clouding/presto-client-php)
-[![](https://img.shields.io/github/release/cloudingcity/presto-client-php.svg?style=flat-square)](https://packagist.org/packages/clouding/presto-client-php)
-[![](https://img.shields.io/travis/com/cloudingcity/presto-client-php.svg?style=flat-square)](https://travis-ci.com/cloudingcity/presto-client-php)
-[![](https://img.shields.io/codecov/c/github/cloudingcity/presto-client-php.svg?style=flat-square)](https://codecov.io/gh/cloudingcity/presto-client-php)
-[![PHPStan](https://img.shields.io/badge/PHPStan-enabled-44CC11.svg?longCache=true&style=flat-square)](https://github.com/phpstan/phpstan)
-
 A [Presto](https://prestodb.io) client for the [PHP](http://www.php.net/) programming language.
 
 > Inspired by [illuminate/database](https://github.com/illuminate/database)
