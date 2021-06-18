@@ -18,7 +18,7 @@ A [Presto](https://prestodb.io) client for the [PHP](http://www.php.net/) progra
 ## Installation
 
 ```
-composer require clouding/presto-client-php
+composer require abmn614/presto-client-php
 ```
 
 ## Quick Start
