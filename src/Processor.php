@@ -89,9 +89,9 @@ class Processor
      * Send query request.
      *
      * @param  string $query
-     * @return object
+     * @return 
      */
-    protected function sendQuery(string $query): object
+    protected function sendQuery(string $query)
     {
         $baseUri = $this->connection->getHost() . static::STATEMENT_URI;
         $headers = [
@@ -108,9 +108,9 @@ class Processor
     /**
      * Send next query.
      *
-     * @return object
+     * @return 
      */
-    protected function sendNextUri(): object
+    protected function sendNextUri()
     {
         $response = $this->client->get($this->nextUri);
 
@@ -120,9 +120,9 @@ class Processor
     /**
      * Resolve response.
      *
-     * @param object $response
+     * @param $response
      */
-    protected function resolve(object $response)
+    protected function resolve($response)
     {
         $this->checkState($response);
 
@@ -134,11 +134,11 @@ class Processor
     /**
      * Check response state.
      *
-     * @param  object $response
+     * @param  $response
      *
      * @throws \Clouding\Presto\Exceptions\PrestoException
      */
-    protected function checkState(object $response)
+    protected function checkState($response)
     {
         if ($response->stats->state === PrestoState::FAILED) {
             $message = "{$response->error->errorName}: {$response->error->message}";
@@ -149,9 +149,9 @@ class Processor
     /**
      * Set next uri.
      *
-     * @param  object $response
+     * @param  $response
      */
-    protected function setNextUri(object $response)
+    protected function setNextUri($response)
     {
         $this->nextUri = $response->nextUri ?? null;
     }

@@ -16,9 +16,9 @@ class AssocCollector implements Collectorable
     /**
      * Collect data from presto response.
      *
-     * @param object $response
+     * @param $response
      */
-    public function collect(object $response)
+    public function collect($response)
     {
         if (!isset($response->data, $response->columns)) {
             return;
@@ -30,10 +30,10 @@ class AssocCollector implements Collectorable
     /**
      * Get associated data.
      *
-     * @param object $response
+     * @param $response
      * @return array
      */
-    protected function getAssocData(object $response): array
+    protected function getAssocData($response): array
     {
         $columns = array_column($response->columns, 'name');
 

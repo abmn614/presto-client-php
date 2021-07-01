@@ -16,9 +16,9 @@ class BasicCollector implements Collectorable
     /**
      * Collect data from presto response.
      *
-     * @param object $response
+     * @param $response
      */
-    public function collect(object $response)
+    public function collect($response)
     {
         if (!isset($response->data)) {
             return;

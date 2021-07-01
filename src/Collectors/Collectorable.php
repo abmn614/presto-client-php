@@ -9,9 +9,9 @@ interface Collectorable
     /**
      * Collect needs data from presto response.
      *
-     * @param object $response
+     * @param $response
      */
-    public function collect(object $response);
+    public function collect($response);
 
     /**
      * Get collect data.
