@@ -10,6 +10,13 @@ use Clouding\Presto\Connection\Manager;
 class Presto
 {
     /**
+     * @var 为了兼容Yii框架配置中自动识别属性而添加
+     */
+    public $host;
+    public $catalog;
+    public $schema;
+
+    /**
      * The container instance.
      *
      * @var \Clouding\Presto\Container
