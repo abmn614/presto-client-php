@@ -98,11 +98,26 @@ class Processor
             'X-Presto-User' => $this->connection->getUser(),
             'X-Presto-Schema' => $this->connection->getSchema(),
             'X-Presto-Catalog' => $this->connection->getCatalog(),
+            'X-Presto-Session' => $this->getSession($query),
         ];
 
-        $response = $this->client->post($baseUri, ['headers' => $headers, 'body' => $query]);
+        $response = $this->client->post($baseUri, ['headers' => $headers, 'body' => $this->transformQuery($query)]);
 
         return json_decode((string) $response->getBody());
+    }
+
+    protected function getSession(string $query)
+    {
+        $matchRst = preg_match('/insert\s+overwrite/i', $query);
+        if ($matchRst !== false && $matchRst > 0) {
+            return 'hive.insert_existing_partitions_behavior=overwrite';
+        }
+        return '';
+    }
+
+    protected function transformQuery(string $query)
+    {
+        return preg_replace('/insert\s+overwrite/i', 'INSERT INTO', $query);
     }
 
     /**

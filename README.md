@@ -8,6 +8,8 @@ A [Presto](https://prestodb.io) client for the [PHP](http://www.php.net/) progra
 
 - Multiple connections define.
 - Get result as an associative array.
+- add support for session
+- add support for insert overwrite
 
 ## Installation
 
