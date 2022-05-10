@@ -95,6 +95,10 @@ class Processor
     {
         $baseUri = $this->connection->getHost() . static::STATEMENT_URI;
         $headers = [
+            'X-Trino-User' => $this->connection->getUser(),
+            'X-Trino-Schema' => $this->connection->getSchema(),
+            'X-Trino-Catalog' => $this->connection->getCatalog(),
+            'X-Trino-Session' => $this->getSession($query),
             'X-Presto-User' => $this->connection->getUser(),
             'X-Presto-Schema' => $this->connection->getSchema(),
             'X-Presto-Catalog' => $this->connection->getCatalog(),
