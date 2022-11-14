@@ -14,7 +14,7 @@ class QueryBuilder
      *
      * @var \Clouding\Presto\Processor
      */
-    protected $processor;
+    public $processor;
 
     /**
      * The raw of query.
