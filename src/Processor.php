@@ -26,6 +26,12 @@ class Processor
     const DELAY = 50;
 
     /**
+     * query ID
+     * @var string
+     */
+    public $queryId;
+
+    /**
      * The connection information.
      *
      * @var \Clouding\Presto\Connection\Connection
@@ -76,7 +82,9 @@ class Processor
     {
         $this->collector = $collector;
 
-        $this->resolve($this->sendQuery($query));
+        $response = $this->sendQuery($query);
+        $this->queryId = $response->id;
+        $this->resolve($response);
 
         while ($this->hasNextUri()) {
             $this->resolve($this->sendNextUri());
