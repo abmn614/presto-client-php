@@ -30,6 +30,11 @@ class Connection
     const DEFAULT_CATALOG = 'default';
 
     /**
+     * 客户端tag
+     */
+    protected $clientTag;
+
+    /**
      * The user of connection.
      *
      * @var string
@@ -78,6 +83,16 @@ class Connection
         $this->host = $config['host'] ?? static::DEFAULT_HOST;
         $this->schema = $config['schema'] ?? '';
         $this->catalog = $config['catalog'] ?? static::DEFAULT_CATALOG;
+        $this->clientTag = $config['clientTag'] ?? '';
+    }
+
+    /**
+     * 获取客户端tag，用于区分资源组
+     * @return string
+     */
+    public function getClientTag(): string
+    {
+        return $this->clientTag;
     }
 
     /**

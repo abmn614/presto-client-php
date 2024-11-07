@@ -107,10 +107,12 @@ class Processor
             'X-Trino-Schema' => $this->connection->getSchema(),
             'X-Trino-Catalog' => $this->connection->getCatalog(),
             'X-Trino-Session' => $this->getSession($query),
+            'X-Trino-Client-Tags' => $this->connection->getClientTag(),
             'X-Presto-User' => $this->connection->getUser(),
             'X-Presto-Schema' => $this->connection->getSchema(),
             'X-Presto-Catalog' => $this->connection->getCatalog(),
             'X-Presto-Session' => $this->getSession($query),
+            'X-Presto-Client-Tags' => $this->connection->getClientTag(),
         ];
 
         $response = $this->client->post($baseUri, ['headers' => $headers, 'body' => $this->transformQuery($query)]);
